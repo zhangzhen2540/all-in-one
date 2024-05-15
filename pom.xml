@@ -27,6 +27,7 @@
         <module>documents</module>
         <module>mongo</module>
         <module>unit-test</module>
+        <module>work-mysql</module>
     </modules>
 
 

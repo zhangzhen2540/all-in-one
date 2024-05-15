@@ -44,7 +44,7 @@ public class SshConnection {
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
             session.setPortForwardingL(local_port, remote_host, remote_port);
-            System.out.println("ssh隧道配置： localhost:" + port + " -> " + remote_host + ":" + remote_port);
+            System.out.println("ssh隧道配置： localhost:" + port + "-" + local_port + " -> " + remote_host + ":" + remote_port);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
