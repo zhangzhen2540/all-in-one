@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>zz.indi</groupId>
+    <artifactId>all-in-one</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <modules>
+        <module>web-sharding</module>
+        <module>web-rw</module>
+        <module>demo-mapstruct</module>
+        <module>spring-bean</module>
+        <module>cache</module>
+        <module>notes</module>
+        <module>dubbo-order</module>
+        <module>dubbo-account</module>
+        <module>dubbo-config</module>
+        <module>springcache-demo</module>
+        <module>json</module>
+        <module>leetcode</module>
+        <module>hystrix</module>
+        <module>dataperm</module>
+        <module>documents</module>
+        <module>mongo</module>
+        <module>unit-test</module>
+    </modules>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <!--        <dependence.version>0.0.1-SNAPSHOT</dependence.version>-->
+        <dependence.version>2.2.0.RELEASE</dependence.version>
+
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <version.dywl-dependencies>${dependence.version}</version.dywl-dependencies>
+        <version.dywl-commons>${dependence.version}</version.dywl-commons>
+        <version.thrid-sdk>${dependence.version}</version.thrid-sdk>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.dywl</groupId>
+                <artifactId>dywl-dependencies</artifactId>
+                <version>${version.dywl-dependencies}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.dywl</groupId>
+                <artifactId>common-dependencies</artifactId>
+                <version>${version.dywl-commons}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.dywl</groupId>
+                <artifactId>third-sdk-dependencies</artifactId>
+                <version>${version.thrid-sdk}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>5.0.4</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+
+    <dependencies>
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>transmittable-thread-local</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>fastjson</artifactId>-->
+        <!--        </dependency>-->
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+</project>

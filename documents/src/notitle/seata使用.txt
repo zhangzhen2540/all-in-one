@@ -1,0 +1,37 @@
+
+
+seata:
+
+	默认数据库为mysql5.1, 使用mysql8 需要修改配置文件 db.store.db.url com.mysql.cj.jdbc.Driver
+	
+	seata-server注册中心设置为zk时，需要增加cluster=default
+	  zk {
+	    serverAddr = "192.168.1.5:2181"
+	    sessionTimeout = 6000
+	    connectTimeout = 2000
+	    cluster = default
+	    username = ""
+        password = ""
+    }
+
+
+应用配置：
+	seata.txServiceGroup = logistics
+	指定配置组
+	
+配置中心：
+    /seata/service.vgroupMapping.logistics=prod   logistics对应应用中配置setata.txServiceGroup
+    值prod为集群名
+
+
+seata-server:
+    seata服务启动后，会在注册中心设置/registry/zk/prod=ip:port，prod为集群名
+    
+    
+    
+# 使用
+    配置完成后，客户端只需要在方法上增加 @GlobalTransactional 注解来指定一个全局事务。
+    
+    如果需要手动控制，可以参考 http://seata.io/zh-cn/docs/user/api.html
+                GlobalTransaction gtx = GlobalTransactionContext.createNew();
+                用于创建一个全局事务。

@@ -1,0 +1,27 @@
+# database
+47.92.81.160
+root/trxxhb2017
+root/tmk7758
+
+
+# admin
+47.92.99.73
+root/tmk7758
+/opt/tomcat/tomcat7-admin-8090/logs
+
+# web
+47.92.102.208
+
+# wiki & jira
+@all， 为限制匿名post请求，开放更多区域的使用，wiki/jira不再限制ip访问，增加http验证。在打开页面时输入dayiwuliu/develop，请知悉。
+
+
+
+wiki:
+wiki.da156.cn
+jira:
+jira.da156.cn
+http验证
+dayiwuliu/develop
+服务验证
+自己注册的账号密码
