@@ -6,6 +6,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.internal.connection.MessageSettings;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.PropertiesUtil;
 import org.assertj.core.util.DateUtil;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -13,6 +14,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import zz.indi.BankStatement;
 import zz.indi.BusinessStatement;
+import zz.indi.PropUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -53,7 +55,11 @@ public class TenDataQuery {
         localMongoTemplate = new MongoTemplate(MongoClients.create(new ConnectionString("mongodb://localhost")), localDB);
 
         String databaseName = "dywl";
-        String connectionString = "mongodb://mongouser:x%40hyFU02ea^MvScZ@lb-2sh1lmjx-amwzs3juqyhlkx1c.clb.ap-beijing.tencentclb.com:27017";
+        PropUtil.load("application.properties");
+        String mongoUser = PropUtil.get("mongo.db.user", true);
+        String mongoPwd = PropUtil.get("mongo.db.pwd", true);
+        String mongoHost = PropUtil.get("mongo.db.host", true);
+        String connectionString = "mongodb://" + mongoUser + ":" + mongoPwd + "@" + mongoHost + ":27017";
         MongoClient mongoClient = MongoClients.create(new ConnectionString(connectionString));
 
         mongoTemplate = new MongoTemplate(mongoClient, databaseName);
