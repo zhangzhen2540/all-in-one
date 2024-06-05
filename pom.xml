@@ -21,7 +21,6 @@
         <module>dubbo-config</module>
         <module>springcache-demo</module>
         <module>json</module>
-        <module>leetcode</module>
         <module>hystrix</module>
         <module>dataperm</module>
         <module>documents</module>
