@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -32,6 +34,15 @@ public class MongoTemplateTest {
     @Test
     public void testQry() {
         Query qry = new Query().addCriteria(Criteria.where("_id").is(4287033988087809L));
+        List<Map> count = mongoTemplate.find(qry, Map.class,"business_statement");
+        log.info("resp: {}", count);
+    }
+    @Test
+    public void testQry1() {
+        Query qry = new Query();
+//        qry.addCriteria(Criteria.where("_id").is(4287033988087809L));
+
+        qry.with(PageRequest.of((int) 0, (int) 2));
         List<Map> count = mongoTemplate.find(qry, Map.class,"business_statement");
         log.info("resp: {}", count);
     }
